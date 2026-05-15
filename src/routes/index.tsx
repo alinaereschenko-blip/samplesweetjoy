@@ -376,10 +376,9 @@ function ChefMenu() {
             </a>
           </div>
 
-          <div className="mt-10 grid grid-cols-3 gap-4">
-            <img src={coffeeRaf} alt="Раф" className="rounded-2xl aspect-square object-cover" loading="lazy" />
-            <img src={cakeMedovik} alt="Медовик" className="rounded-2xl aspect-square object-cover" loading="lazy" />
-            <img src={cakeStrawberry} alt="Клубничный торт" className="rounded-2xl aspect-square object-cover" loading="lazy" />
+          <div className="mt-10 grid grid-cols-2 gap-4">
+            <img src={bowl1} alt="Боул с лососем, авокадо и киноа" className="rounded-2xl aspect-square object-cover" loading="lazy" />
+            <img src={bowl2} alt="Боул с тунцом, овощами и эдамаме" className="rounded-2xl aspect-square object-cover" loading="lazy" />
           </div>
         </div>
       </div>
