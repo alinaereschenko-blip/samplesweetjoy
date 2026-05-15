@@ -14,6 +14,8 @@ import review2 from "@/assets/reviews/review-2.jpg";
 import review3 from "@/assets/reviews/review-3.jpg";
 import review4 from "@/assets/reviews/review-4.jpg";
 import review5 from "@/assets/reviews/review-5.jpg";
+import bowl1 from "@/assets/dishes/bowl-1.jpg";
+import bowl2 from "@/assets/dishes/bowl-2.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
