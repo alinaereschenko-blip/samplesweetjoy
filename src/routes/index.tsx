@@ -1,37 +1,36 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import heroCake from "@/assets/hero-cake.png";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-transparent.png";
 import cakeDisplay from "@/assets/cake-display.jpg";
 import cakeStrawberry from "@/assets/cake-strawberry.jpg";
 import cakePistachio from "@/assets/cake-pistachio.jpg";
 import cakeMedovik from "@/assets/cake-medovik.jpg";
 import coffeeRaf from "@/assets/coffee-raf.jpg";
 import interior from "@/assets/interior.jpg";
+import chef from "@/assets/chef.png";
+import review1 from "@/assets/reviews/review-1.jpg";
+import review2 from "@/assets/reviews/review-2.jpg";
+import review3 from "@/assets/reviews/review-3.jpg";
+import review4 from "@/assets/reviews/review-4.jpg";
+import review5 from "@/assets/reviews/review-5.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
 const cakes = [
-  { name: "Клубника со сливками", desc: "Нежный бисквит, маскарпоне и свежая клубника", price: "от 380 ₽", img: cakeStrawberry, tag: "Хит" },
-  { name: "Фисташка-малина", desc: "Фисташковый крем и малиновое конфи", price: "от 420 ₽", img: cakePistachio, tag: "Новинка" },
-  { name: "Медовик «Бабушкин»", desc: "Тонкие медовые коржи и сметанный крем", price: "от 320 ₽", img: cakeMedovik, tag: "Классика" },
+  { name: "Клубника со сливками", desc: "Нежный бисквит, маскарпоне и свежая клубника", img: cakeStrawberry, tag: "Хит" },
+  { name: "Фисташка-малина", desc: "Фисташковый крем и малиновое конфи", img: cakePistachio, tag: "Новинка" },
+  { name: "Медовик «Бабушкин»", desc: "Тонкие медовые коржи и сметанный крем", img: cakeMedovik, tag: "Классика" },
 ];
 
-const drinks = [
-  { name: "Раф ванильный", price: "240 ₽" },
-  { name: "Капучино", price: "190 ₽" },
-  { name: "Латте лавандовый", price: "260 ₽" },
-  { name: "Флэт уайт", price: "210 ₽" },
-  { name: "Какао с маршмеллоу", price: "220 ₽" },
-  { name: "Чай облепиха-имбирь", price: "280 ₽" },
-];
-
-const meals = [
-  { name: "Боул с лососем", desc: "Рис, авокадо, огурец, нори", price: "490 ₽" },
-  { name: "Цезарь с курицей", desc: "Романо, пармезан, гренки", price: "420 ₽" },
-  { name: "Пицца «Маргарита»", desc: "Моцарелла, томаты, базилик", price: "450 ₽" },
-  { name: "Боул фалафель", desc: "Булгур, хумус, овощи", price: "440 ₽" },
+const reviews = [
+  { img: review1, text: "Очень необычные, но ооочень вкусные!", author: "Гостья кофейни" },
+  { img: review2, text: "Дубайским шоколадом уже никого не удивишь. А как насчёт дубайского чизкейка?", author: "Постоянный гость" },
+  { img: review3, text: "Домашнее горячее какао после тренировки в такую погоду — то, что нужно", author: "Из соседнего зала" },
+  { img: review4, text: "Покупая «Добрый десерт» в Sweet Joy — вы помогаете детям. Вечер стал продолжением дня Добра", author: "look_vokrug26" },
+  { img: review5, text: "Похлёбка с лососем и креветками + смузи с базиликом и малиной. Лучший обед!", author: "Гостья кофейни" },
 ];
 
 function Index() {
@@ -41,7 +40,8 @@ function Index() {
       <Hero />
       <CakesSection />
       <CustomCakes />
-      <MenuSection />
+      <Reviews />
+      <ChefMenu />
       <Visit />
       <Footer />
     </div>
@@ -51,7 +51,7 @@ function Index() {
 function Logo({ className = "" }: { className?: string }) {
   return (
     <a href="#top" className={`flex items-center ${className}`} aria-label="Sweet Joy Cafe">
-      <img src={logo} alt="Sweet Joy Cafe" className="h-10 md:h-12 w-auto" />
+      <img src={logo} alt="Sweet Joy Cafe" className="h-14 md:h-20 w-auto" />
     </a>
   );
 }
@@ -59,7 +59,7 @@ function Logo({ className = "" }: { className?: string }) {
 function Header() {
   return (
     <header id="top" className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b border-border/60">
-      <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+      <div className="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
         <Logo />
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
           <a href="#cakes" className="hover:text-primary transition">Торты</a>
@@ -68,10 +68,10 @@ function Header() {
           <a href="#visit" className="hover:text-primary transition">Адрес</a>
         </nav>
         <a
-          href="#order"
+          href="tel:+79187778219"
           className="hidden md:inline-flex items-center rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm font-semibold hover:opacity-90 transition shadow-[var(--shadow-soft)]"
         >
-          Заказать торт
+          +7 (918) 777-82-19
         </a>
       </div>
     </header>
@@ -85,15 +85,18 @@ function Hero() {
         <div className="animate-fade-up">
           <span className="inline-flex items-center gap-2 rounded-full bg-card border border-border px-4 py-1.5 text-xs font-medium text-muted-foreground">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-            Кофейня и кондитерская в центре города
+            Кофейня и кондитерская в центре Ставрополя
           </span>
           <h1 className="mt-6 font-display text-5xl md:text-7xl font-semibold leading-[1.05] text-balance text-primary">
             Торты, от которых
             <span className="italic text-accent"> хочется улыбнуться</span>
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground max-w-lg">
-            Sweet Joy — это уютная кофейня, где витрина каждый день наполняется большими цветными тортами. Заходите за кусочком к рафу или закажите целый торт к празднику.
-          </p>
+          <div className="mt-8 space-y-4 text-lg text-muted-foreground max-w-lg">
+            <p>
+              <span className="font-semibold text-primary">Наша миссия:</span> дарить вам счастливые эмоции и радость от каждого мгновения, проведённого в Sweet Joy, и делать всё возможное, чтобы ваше время у нас стало особенным.
+            </p>
+            <p>Мы активно развиваемся и мечтаем радовать вас ещё больше.</p>
+          </div>
           <div className="mt-8 flex flex-wrap gap-4">
             <a href="#cakes" className="inline-flex items-center rounded-full bg-primary text-primary-foreground px-7 py-3.5 text-sm font-semibold hover:opacity-90 transition shadow-[var(--shadow-soft)]">
               Посмотреть витрину
@@ -101,17 +104,6 @@ function Hero() {
             <a href="#order" className="inline-flex items-center rounded-full bg-card border border-border text-primary px-7 py-3.5 text-sm font-semibold hover:bg-secondary transition">
               Торт на заказ →
             </a>
-          </div>
-          <div className="mt-12 flex items-center gap-8 text-sm text-muted-foreground">
-            <div>
-              <div className="font-display text-3xl text-primary">25+</div>
-              <div>вкусов на витрине</div>
-            </div>
-            <div className="h-10 w-px bg-border" />
-            <div>
-              <div className="font-display text-3xl text-primary">7 лет</div>
-              <div>в центре города</div>
-            </div>
           </div>
         </div>
 
@@ -173,10 +165,7 @@ function CakesSection() {
                 </span>
               </div>
               <div className="p-6">
-                <div className="flex items-baseline justify-between gap-3">
-                  <h3 className="font-display text-2xl text-primary">{c.name}</h3>
-                  <span className="text-sm font-semibold text-accent whitespace-nowrap">{c.price}</span>
-                </div>
+                <h3 className="font-display text-2xl text-primary">{c.name}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{c.desc}</p>
               </div>
             </article>
@@ -210,12 +199,16 @@ function CustomCakes() {
           <p className="mt-6 text-muted-foreground text-lg">
             Свадьба, день рождения, корпоратив или просто вечер вторника — мы испечём торт по вашему вкусу, цвету и поводу. Минимум за 2 дня.
           </p>
+          <div className="mt-6 inline-flex items-center gap-3 rounded-2xl bg-accent/20 px-5 py-3">
+            <span className="font-display text-3xl text-accent">20+</span>
+            <span className="text-sm text-foreground">видов начинок на выбор</span>
+          </div>
           <ul className="mt-8 space-y-4">
             {[
-              "Выбор начинки и оформления",
+              "Более 20 авторских начинок",
               "Свежие фрукты, ягоды, шоколад",
               "Размер от 1 до 10 кг",
-              "Доставка по городу",
+              "Доставка по Ставрополю",
             ].map((it) => (
               <li key={it} className="flex items-start gap-3">
                 <span className="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-accent text-accent-foreground text-xs font-bold">✓</span>
@@ -223,7 +216,7 @@ function CustomCakes() {
               </li>
             ))}
           </ul>
-          <a href="tel:+78001234567" className="mt-10 inline-flex items-center rounded-full bg-primary text-primary-foreground px-7 py-3.5 text-sm font-semibold hover:opacity-90 transition shadow-[var(--shadow-soft)]">
+          <a href="tel:+79187778219" className="mt-10 inline-flex items-center rounded-full bg-primary text-primary-foreground px-7 py-3.5 text-sm font-semibold hover:opacity-90 transition shadow-[var(--shadow-soft)]">
             Обсудить заказ
           </a>
         </div>
@@ -247,60 +240,119 @@ function CustomCakes() {
   );
 }
 
-function MenuSection() {
+function Reviews() {
+  const [idx, setIdx] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setIdx((i) => (i + 1) % reviews.length), 5000);
+    return () => clearInterval(t);
+  }, []);
   return (
-    <section id="menu" className="py-24 md:py-32">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-sm uppercase tracking-[0.2em] text-accent font-semibold">Меню</span>
+    <section id="reviews" className="py-24 md:py-32">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-sm uppercase tracking-[0.2em] text-accent font-semibold">Отзывы</span>
           <h2 className="mt-3 font-display text-4xl md:text-5xl text-primary text-balance">
-            Кофе, чай и сытные блюда
+            Что говорят гости
           </h2>
-          <p className="mt-4 text-muted-foreground">
-            Не только торты — у нас есть всё, чтобы провести у нас час или весь день.
-          </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          <div className="bg-card rounded-3xl p-8 md:p-10 border border-border shadow-[var(--shadow-card)]">
-            <div className="flex items-center justify-between mb-8">
-              <h3 className="font-display text-3xl text-primary">Кофе и напитки</h3>
-              <span className="text-2xl">☕</span>
-            </div>
-            <ul className="divide-y divide-border">
-              {drinks.map((d) => (
-                <li key={d.name} className="flex items-center justify-between py-4">
-                  <span className="text-foreground">{d.name}</span>
-                  <span className="font-semibold text-accent">{d.price}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="bg-card rounded-3xl p-8 md:p-10 border border-border shadow-[var(--shadow-card)]">
-            <div className="flex items-center justify-between mb-8">
-              <h3 className="font-display text-3xl text-primary">Боулы, салаты, пицца</h3>
-              <span className="text-2xl">🥗</span>
-            </div>
-            <ul className="divide-y divide-border">
-              {meals.map((m) => (
-                <li key={m.name} className="py-4">
-                  <div className="flex items-baseline justify-between gap-4">
-                    <span className="text-foreground font-medium">{m.name}</span>
-                    <span className="font-semibold text-accent whitespace-nowrap">{m.price}</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground mt-1">{m.desc}</p>
-                </li>
-              ))}
-            </ul>
+        <div className="relative overflow-hidden rounded-3xl bg-card border border-border shadow-[var(--shadow-card)]">
+          <div
+            className="flex transition-transform duration-700 ease-out"
+            style={{ transform: `translateX(-${idx * 100}%)` }}
+          >
+            {reviews.map((r, i) => (
+              <div key={i} className="min-w-full grid md:grid-cols-2">
+                <div className="aspect-square md:aspect-auto md:h-[480px] overflow-hidden bg-secondary">
+                  <img src={r.img} alt={r.author} className="w-full h-full object-cover" loading="lazy" />
+                </div>
+                <div className="p-8 md:p-12 flex flex-col justify-center">
+                  <div className="font-display text-5xl text-accent leading-none">“</div>
+                  <p className="mt-4 font-display text-2xl md:text-3xl text-primary leading-snug text-balance">
+                    {r.text}
+                  </p>
+                  <div className="mt-6 text-sm text-muted-foreground">— {r.author}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="mt-12 grid md:grid-cols-2 gap-6">
-          <img src={coffeeRaf} alt="Раф с кусочком торта" loading="lazy" width={1000} height={800} className="w-full aspect-[5/4] object-cover rounded-3xl shadow-[var(--shadow-card)]" />
-          <div className="bg-accent/30 rounded-3xl p-10 flex flex-col justify-center">
-            <h3 className="font-display text-3xl text-primary text-balance">Лучший раф в городе — и это не мы говорим</h3>
-            <p className="mt-4 text-foreground/80">Варим на цельном молоке с натуральной ванилью. Идеально с кусочком медовика.</p>
+        <div className="mt-6 flex justify-center gap-2">
+          {reviews.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIdx(i)}
+              aria-label={`Отзыв ${i + 1}`}
+              className={`h-2 rounded-full transition-all ${i === idx ? "w-8 bg-accent" : "w-2 bg-border"}`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ChefMenu() {
+  return (
+    <section id="menu" className="py-24 md:py-32 bg-secondary">
+      <div className="mx-auto max-w-7xl px-6 grid md:grid-cols-5 gap-12 items-center">
+        <div className="md:col-span-2 relative order-2 md:order-1">
+          <div className="absolute inset-0 bg-gradient-to-br from-accent/30 to-[var(--pistachio)]/30 rounded-[2rem] -rotate-3" />
+          <div className="relative bg-card rounded-[2rem] overflow-hidden border border-border shadow-[var(--shadow-card)]">
+            <img
+              src={chef}
+              alt="Шеф-повар Семён Найдёнов"
+              className="w-full aspect-[3/4] object-cover object-top"
+              loading="lazy"
+            />
+            <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/60 to-transparent text-white">
+              <div className="text-xs uppercase tracking-wider opacity-80">Шеф-повар</div>
+              <div className="font-display text-2xl">Семён Найдёнов</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="md:col-span-3 order-1 md:order-2">
+          <span className="text-sm uppercase tracking-[0.2em] text-accent font-semibold">Наш шеф-повар</span>
+          <h2 className="mt-3 font-display text-4xl md:text-5xl text-primary text-balance">
+            Новое меню от Семёна Найдёнова
+          </h2>
+          <div className="mt-6 space-y-4 text-foreground/90 text-lg">
+            <p>
+              С радостью представляем вам новое меню и его автора — нашего шеф-повара Семёна Найдёнова!
+            </p>
+            <p>
+              Сочиняя новое меню, Семён решил расширить ассортимент горячих блюд и обновить полюбившиеся нашим гостям завтраки и сладкие блюда.
+            </p>
+            <p>
+              Также мы дополнили витрину новыми десертами: от трендовых сладостей с дубайским шоколадом до классических чизкейков в авторском исполнении наших кондитеров.
+            </p>
+            <p className="text-primary font-medium">
+              С нетерпением ждём, когда вы попробуете наши новые блюда и десерты!
+            </p>
+          </div>
+          <div className="mt-10 flex flex-wrap gap-4">
+            <a
+              href="/menu.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-3.5 text-sm font-semibold hover:opacity-90 transition shadow-[var(--shadow-soft)]"
+            >
+              Открыть меню (PDF) ↗
+            </a>
+            <a
+              href="#visit"
+              className="inline-flex items-center rounded-full bg-card border border-border text-primary px-7 py-3.5 text-sm font-semibold hover:bg-background transition"
+            >
+              Как нас найти
+            </a>
+          </div>
+
+          <div className="mt-10 grid grid-cols-3 gap-4">
+            <img src={coffeeRaf} alt="Раф" className="rounded-2xl aspect-square object-cover" loading="lazy" />
+            <img src={cakeMedovik} alt="Медовик" className="rounded-2xl aspect-square object-cover" loading="lazy" />
+            <img src={cakeStrawberry} alt="Клубничный торт" className="rounded-2xl aspect-square object-cover" loading="lazy" />
           </div>
         </div>
       </div>
@@ -310,28 +362,36 @@ function MenuSection() {
 
 function Visit() {
   return (
-    <section id="visit" className="py-24 md:py-32 bg-secondary">
+    <section id="visit" className="py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6 grid md:grid-cols-2 gap-12 items-center">
         <img src={interior} alt="Интерьер кофейни Sweet Joy" loading="lazy" width={1280} height={900} className="rounded-3xl shadow-[var(--shadow-soft)] w-full object-cover aspect-[4/3]" />
         <div>
           <span className="text-sm uppercase tracking-[0.2em] text-accent font-semibold">Заходите</span>
           <h2 className="mt-3 font-display text-4xl md:text-5xl text-primary text-balance">
-            В самом центре, между булочной и книжным
+            В самом центре Ставрополя
           </h2>
           <div className="mt-8 space-y-5 text-foreground">
             <div>
               <div className="text-xs uppercase tracking-wider text-muted-foreground">Адрес</div>
-              <div className="mt-1 text-lg">ул. Центральная, 12</div>
+              <div className="mt-1 text-lg">просп. Октябрьской Революции, 20, Ставрополь</div>
             </div>
             <div>
               <div className="text-xs uppercase tracking-wider text-muted-foreground">Часы работы</div>
-              <div className="mt-1 text-lg">Пн–Вс · 09:00 — 22:00</div>
+              <div className="mt-1 text-lg">Ежедневно · 10:00 — 22:00</div>
             </div>
             <div>
               <div className="text-xs uppercase tracking-wider text-muted-foreground">Телефон</div>
-              <a href="tel:+78001234567" className="mt-1 text-lg block hover:text-accent transition">+7 (800) 123-45-67</a>
+              <a href="tel:+79187778219" className="mt-1 text-lg block hover:text-accent transition">+7 (918) 777-82-19</a>
             </div>
           </div>
+          <a
+            href="https://yandex.ru/maps/?text=Ставрополь%2C%20просп.%20Октябрьской%20Революции%2C%2020"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex items-center rounded-full bg-primary text-primary-foreground px-7 py-3.5 text-sm font-semibold hover:opacity-90 transition shadow-[var(--shadow-soft)]"
+          >
+            Построить маршрут →
+          </a>
         </div>
       </div>
     </section>
@@ -344,19 +404,21 @@ function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16 grid md:grid-cols-3 gap-10">
         <div>
           <div className="font-display text-3xl">Sweet <span className="italic text-accent">Joy</span></div>
-          <p className="mt-3 text-sm opacity-80">Кофейня и кондитерская в центре города. С любовью к каждому кусочку с 2018 года.</p>
+          <p className="mt-3 text-sm opacity-80">Кофейня и кондитерская в центре Ставрополя. С любовью к каждому кусочку.</p>
         </div>
         <div className="text-sm space-y-2 opacity-90">
           <div className="font-semibold mb-3 opacity-100">Навигация</div>
           <a href="#cakes" className="block hover:text-accent transition">Витрина тортов</a>
           <a href="#order" className="block hover:text-accent transition">Торт на заказ</a>
-          <a href="#menu" className="block hover:text-accent transition">Меню кофейни</a>
+          <a href="#reviews" className="block hover:text-accent transition">Отзывы</a>
+          <a href="/menu.pdf" target="_blank" rel="noopener noreferrer" className="block hover:text-accent transition">Меню (PDF)</a>
         </div>
         <div className="text-sm space-y-2 opacity-90">
           <div className="font-semibold mb-3 opacity-100">Контакты</div>
-          <div>ул. Центральная, 12</div>
-          <div>+7 (800) 123-45-67</div>
-          <div>hello@sweetjoy.ru</div>
+          <div>просп. Октябрьской Революции, 20</div>
+          <div>Ставрополь</div>
+          <div>Ежедневно 10:00 — 22:00</div>
+          <a href="tel:+79187778219" className="block hover:text-accent transition">+7 (918) 777-82-19</a>
         </div>
       </div>
       <div className="border-t border-primary-foreground/10 py-6 text-center text-xs opacity-60">
