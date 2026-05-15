@@ -330,18 +330,25 @@ function ChefMenu() {
     <section id="menu" className="py-24 md:py-32 bg-secondary">
       <div className="mx-auto max-w-7xl px-6 grid md:grid-cols-5 gap-12 items-center">
         <div className="md:col-span-2 relative order-2 md:order-1">
-          <div className="absolute inset-0 bg-gradient-to-br from-accent/30 to-[var(--pistachio)]/30 rounded-[2rem] -rotate-3" />
-          <div className="relative bg-gradient-to-br from-[var(--cream)] to-secondary rounded-[2rem] overflow-hidden border border-border shadow-[var(--shadow-card)] aspect-[3/4] flex items-center justify-center">
-            <img
-              src={chef}
-              alt="Шеф-повар Семён Найдёнов"
-              className="w-full h-full object-contain object-center"
-              loading="lazy"
-            />
-            <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/60 to-transparent text-white">
-              <div className="text-xs uppercase tracking-wider opacity-80">Шеф-повар</div>
-              <div className="font-display text-2xl">Семён Найдёнов</div>
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-accent/30 to-[var(--pistachio)]/30 rounded-[2rem] -rotate-3" />
+            <div className="relative bg-gradient-to-br from-[var(--cream)] to-secondary rounded-[2rem] overflow-hidden border border-border shadow-[var(--shadow-card)] aspect-[3/4]">
+              <img
+                src={chef}
+                alt="Шеф-повар Семён Найдёнов"
+                className="absolute inset-0 w-full h-full object-contain"
+                loading="lazy"
+              />
+              <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/60 to-transparent text-white">
+                <div className="text-xs uppercase tracking-wider opacity-80">Шеф-повар</div>
+                <div className="font-display text-2xl">Семён Найдёнов</div>
+              </div>
             </div>
+          </div>
+          <div className="mt-6 grid grid-cols-3 gap-3">
+            <img src={saladCezar} alt="Салат «Цезарь» с лососем" className="rounded-2xl aspect-square object-cover" loading="lazy" />
+            <img src={saladStracciatella} alt="Салат со страчателлой" className="rounded-2xl aspect-square object-cover" loading="lazy" />
+            <img src={saladEggplant} alt="Салат с баклажаном" className="rounded-2xl aspect-square object-cover" loading="lazy" />
           </div>
         </div>
 
