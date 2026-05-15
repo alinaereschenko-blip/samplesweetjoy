@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import heroCake from "@/assets/hero-cake.jpg";
+import heroCake from "@/assets/hero-cake.png";
+import logo from "@/assets/logo.png";
 import cakeDisplay from "@/assets/cake-display.jpg";
 import cakeStrawberry from "@/assets/cake-strawberry.jpg";
 import cakePistachio from "@/assets/cake-pistachio.jpg";
@@ -49,8 +50,8 @@ function Index() {
 
 function Logo({ className = "" }: { className?: string }) {
   return (
-    <a href="#top" className={`font-display text-2xl font-semibold tracking-tight text-primary ${className}`}>
-      Sweet <span className="italic text-accent">Joy</span>
+    <a href="#top" className={`flex items-center ${className}`} aria-label="Sweet Joy Cafe">
+      <img src={logo} alt="Sweet Joy Cafe" className="h-10 md:h-12 w-auto" />
     </a>
   );
 }
@@ -120,7 +121,7 @@ function Hero() {
           <div className="relative animate-float">
             <img
               src={heroCake}
-              alt="Торт со свежими ягодами"
+              alt="Фисташковый торт с клубникой"
               width={1280}
               height={1280}
               className="rounded-3xl shadow-[var(--shadow-soft)] w-full object-cover aspect-square"
