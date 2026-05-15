@@ -14,6 +14,8 @@ import review2 from "@/assets/reviews/review-2.jpg";
 import review3 from "@/assets/reviews/review-3.jpg";
 import review4 from "@/assets/reviews/review-4.jpg";
 import review5 from "@/assets/reviews/review-5.jpg";
+import bowl1 from "@/assets/dishes/bowl-1.jpg";
+import bowl2 from "@/assets/dishes/bowl-2.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -376,10 +378,9 @@ function ChefMenu() {
             </a>
           </div>
 
-          <div className="mt-10 grid grid-cols-3 gap-4">
-            <img src={coffeeRaf} alt="Раф" className="rounded-2xl aspect-square object-cover" loading="lazy" />
-            <img src={cakeMedovik} alt="Медовик" className="rounded-2xl aspect-square object-cover" loading="lazy" />
-            <img src={cakeStrawberry} alt="Клубничный торт" className="rounded-2xl aspect-square object-cover" loading="lazy" />
+          <div className="mt-10 grid grid-cols-2 gap-4">
+            <img src={bowl1} alt="Боул с лососем, авокадо и киноа" className="rounded-2xl aspect-square object-cover" loading="lazy" />
+            <img src={bowl2} alt="Боул с тунцом, овощами и эдамаме" className="rounded-2xl aspect-square object-cover" loading="lazy" />
           </div>
         </div>
       </div>
