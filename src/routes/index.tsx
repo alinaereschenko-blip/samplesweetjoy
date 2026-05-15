@@ -16,6 +16,9 @@ import review4 from "@/assets/reviews/review-4.jpg";
 import review5 from "@/assets/reviews/review-5.jpg";
 import bowl1 from "@/assets/dishes/bowl-1.jpg";
 import bowl2 from "@/assets/dishes/bowl-2.jpg";
+import saladCezar from "@/assets/dishes/salad-cezar.jpg";
+import saladStracciatella from "@/assets/dishes/salad-stracciatella.jpg";
+import saladEggplant from "@/assets/dishes/salad-eggplant.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
