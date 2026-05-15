@@ -241,50 +241,77 @@ function CustomCakes() {
 }
 
 function Reviews() {
-  const [idx, setIdx] = useState(0);
+  const [active, setActive] = useState(0);
   useEffect(() => {
-    const t = setInterval(() => setIdx((i) => (i + 1) % reviews.length), 5000);
+    const t = setInterval(() => setActive((i) => (i + 1) % reviews.length), 5000);
     return () => clearInterval(t);
-  }, []);
+  }, [active]);
+
   return (
-    <section id="reviews" className="py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-sm uppercase tracking-[0.2em] text-accent font-semibold">Отзывы</span>
+    <section id="reviews" className="py-24 md:py-32 bg-gradient-to-b from-background to-secondary/40">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <span className="text-sm uppercase tracking-[0.2em] text-accent font-semibold">Отзывы гостей</span>
           <h2 className="mt-3 font-display text-4xl md:text-5xl text-primary text-balance">
-            Что говорят гости
+            Истории из нашей кофейни
           </h2>
+          <p className="mt-3 text-muted-foreground">Реальные сторис от гостей Sweet Joy в Instagram</p>
         </div>
 
-        <div className="relative overflow-hidden rounded-3xl bg-card border border-border shadow-[var(--shadow-card)]">
-          <div
-            className="flex transition-transform duration-700 ease-out"
-            style={{ transform: `translateX(-${idx * 100}%)` }}
-          >
-            {reviews.map((r, i) => (
-              <div key={i} className="min-w-full grid md:grid-cols-2">
-                <div className="aspect-square md:aspect-auto md:h-[480px] overflow-hidden bg-secondary">
-                  <img src={r.img} alt={r.author} className="w-full h-full object-cover" loading="lazy" />
+        <div className="flex gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory pb-6 -mx-6 px-6 md:justify-center scrollbar-thin">
+          {reviews.map((r, i) => (
+            <button
+              key={i}
+              onClick={() => setActive(i)}
+              className={`group relative flex-none snap-center w-[260px] md:w-[280px] aspect-[9/16] rounded-[28px] overflow-hidden shadow-[var(--shadow-card)] transition-all duration-500 ${
+                active === i ? "scale-[1.04] ring-4 ring-accent/60" : "scale-100 opacity-80 hover:opacity-100"
+              }`}
+              style={{
+                background: "linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)",
+                padding: "3px",
+              }}
+              aria-label={`Сторис ${i + 1}`}
+            >
+              <div className="relative w-full h-full rounded-[26px] overflow-hidden bg-black">
+                <img src={r.img} alt={r.author} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                {/* top progress bars */}
+                <div className="absolute top-3 left-3 right-3 flex gap-1 z-10">
+                  {reviews.map((_, j) => (
+                    <div key={j} className="flex-1 h-0.5 bg-white/30 rounded-full overflow-hidden">
+                      <div
+                        className="h-full bg-white"
+                        style={{
+                          width: active === i && j === i ? "100%" : j < i ? "100%" : "0%",
+                          transition: active === i && j === i ? "width 5s linear" : "none",
+                        }}
+                      />
+                    </div>
+                  ))}
                 </div>
-                <div className="p-8 md:p-12 flex flex-col justify-center">
-                  <div className="font-display text-5xl text-accent leading-none">“</div>
-                  <p className="mt-4 font-display text-2xl md:text-3xl text-primary leading-snug text-balance">
+                {/* header */}
+                <div className="absolute top-7 left-3 right-3 flex items-center gap-2 z-10">
+                  <div className="h-7 w-7 rounded-full bg-gradient-to-br from-accent to-[var(--rose)] ring-2 ring-white flex items-center justify-center text-[10px] font-bold text-white">SJ</div>
+                  <div className="text-white text-xs font-semibold drop-shadow">sweetjoycafe_stv</div>
+                </div>
+                {/* gradient + caption */}
+                <div className="absolute inset-x-0 bottom-0 p-4 pt-16 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10">
+                  <p className="text-white text-sm font-medium leading-snug drop-shadow">
                     {r.text}
                   </p>
-                  <div className="mt-6 text-sm text-muted-foreground">— {r.author}</div>
+                  <div className="mt-2 text-[11px] text-white/70">— {r.author}</div>
                 </div>
               </div>
-            ))}
-          </div>
+            </button>
+          ))}
         </div>
 
-        <div className="mt-6 flex justify-center gap-2">
+        <div className="mt-2 flex justify-center gap-2">
           {reviews.map((_, i) => (
             <button
               key={i}
-              onClick={() => setIdx(i)}
-              aria-label={`Отзыв ${i + 1}`}
-              className={`h-2 rounded-full transition-all ${i === idx ? "w-8 bg-accent" : "w-2 bg-border"}`}
+              onClick={() => setActive(i)}
+              aria-label={`Перейти к сторис ${i + 1}`}
+              className={`h-2 rounded-full transition-all ${i === active ? "w-8 bg-accent" : "w-2 bg-border"}`}
             />
           ))}
         </div>
