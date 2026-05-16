@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import heroCake from "@/assets/hero-cake.png";
 import logo from "@/assets/logo-transparent.png";
+import cafeInterior from "@/assets/cafe-interior.webp";
 import cakeDisplay from "@/assets/cake-display.jpg";
 import cakeStrawberry from "@/assets/cake-strawberry.jpg";
 import cakePistachio from "@/assets/cake-pistachio.jpg";
@@ -396,7 +397,7 @@ function Visit() {
   return (
     <section id="visit" className="py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6 grid md:grid-cols-2 gap-12 items-center">
-        <img src={interior} alt="Интерьер кофейни Sweet Joy" loading="lazy" width={1280} height={900} className="rounded-3xl shadow-[var(--shadow-soft)] w-full object-cover aspect-[4/3]" />
+        <img src={cafeInterior} alt="Интерьер кофейни Sweet Joy" loading="lazy" width={1280} height={900} className="rounded-3xl shadow-[var(--shadow-soft)] w-full object-cover aspect-[4/3]" />
         <div>
           <span className="text-sm uppercase tracking-[0.2em] text-accent font-semibold">Заходите</span>
           <h2 className="mt-3 font-display text-4xl md:text-5xl text-primary text-balance">
@@ -435,7 +436,7 @@ function Footer() {
     <footer className="bg-primary text-primary-foreground">
       <div className="mx-auto max-w-7xl px-6 py-16 grid md:grid-cols-3 gap-10">
         <div>
-          <div className="font-display text-3xl">Sweet <span className="italic text-accent">Joy</span></div>
+          <img src={logo} alt="Sweet Joy Cafe" className="h-14 md:h-20 w-auto" />
           <p className="mt-3 text-sm opacity-80">Кофейня и кондитерская в центре Ставрополя. С любовью к каждому кусочку.</p>
         </div>
         <div className="text-sm space-y-2 opacity-90">
