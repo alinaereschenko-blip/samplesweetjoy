@@ -1,23 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import heroCake from "@/assets/hero-cake.png";
-import logo from "@/assets/logo-transparent.png";
-import cafeInterior from "@/assets/cafe-interior.webp";
-import cakeDisplay from "@/assets/cake-display.jpg";
-import cakeStrawberry from "@/assets/cake-strawberry.jpg";
-import cakePistachio from "@/assets/cake-pistachio.jpg";
-import cakeMedovik from "@/assets/cake-medovik.jpg";
-import coffeeRaf from "@/assets/coffee-raf.jpg";
-import interior from "@/assets/interior.jpg";
-import chef from "@/assets/chef.png";
-import review1 from "@/assets/reviews/review-1.jpg";
-import review2 from "@/assets/reviews/review-2.jpg";
-import review3 from "@/assets/reviews/review-3.jpg";
-import review4 from "@/assets/reviews/review-4.jpg";
-import review5 from "@/assets/reviews/review-5.jpg";
-import saladCezar from "@/assets/dishes/salad-cezar.jpg";
-import saladStracciatella from "@/assets/dishes/salad-stracciatella.jpg";
-import saladEggplant from "@/assets/dishes/salad-eggplant.jpg";
+
+const heroCake = "https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg?auto=compress&cs=tinysrgb&w=1280";
+const cafeInterior = "https://images.pexels.com/photos/1855214/pexels-photo-1855214.jpeg?auto=compress&cs=tinysrgb&w=1280";
+const cakeDisplay = "https://images.pexels.com/photos/1721932/pexels-photo-1721932.jpeg?auto=compress&cs=tinysrgb&w=1280";
+const cakeStrawberry = "https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?auto=compress&cs=tinysrgb&w=800";
+const cakePistachio = "https://images.pexels.com/photos/1854652/pexels-photo-1854652.jpeg?auto=compress&cs=tinysrgb&w=800";
+const cakeMedovik = "https://images.pexels.com/photos/6880219/pexels-photo-6880219.jpeg?auto=compress&cs=tinysrgb&w=800";
+const chef = "https://images.pexels.com/photos/3814446/pexels-photo-3814446.jpeg?auto=compress&cs=tinysrgb&w=800";
+const review1 = "https://images.pexels.com/photos/3992656/pexels-photo-3992656.jpeg?auto=compress&cs=tinysrgb&w=400";
+const review2 = "https://images.pexels.com/photos/3992198/pexels-photo-3992198.jpeg?auto=compress&cs=tinysrgb&w=400";
+const review3 = "https://images.pexels.com/photos/3992207/pexels-photo-3992207.jpeg?auto=compress&cs=tinysrgb&w=400";
+const review4 = "https://images.pexels.com/photos/3992204/pexels-photo-3992204.jpeg?auto=compress&cs=tinysrgb&w=400";
+const review5 = "https://images.pexels.com/photos/3992197/pexels-photo-3992197.jpeg?auto=compress&cs=tinysrgb&w=400";
+const saladCezar = "https://images.pexels.com/photos/1211887/pexels-photo-1211887.jpeg?auto=compress&cs=tinysrgb&w=400";
+const saladStracciatella = "https://images.pexels.com/photos/3026808/pexels-photo-3026808.jpeg?auto=compress&cs=tinysrgb&w=400";
+const saladEggplant = "https://images.pexels.com/photos/5737247/pexels-photo-5737247.jpeg?auto=compress&cs=tinysrgb&w=400";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -55,7 +53,9 @@ function Index() {
 function Logo({ className = "" }: { className?: string }) {
   return (
     <a href="#top" className={`flex items-center ${className}`} aria-label="Sweet Joy Cafe">
-      <img src={logo} alt="Sweet Joy Cafe" className="h-14 md:h-20 w-auto" />
+      <span className="font-display text-2xl md:text-3xl font-semibold text-primary tracking-tight">
+        Sweet <span className="text-accent italic">Joy</span>
+      </span>
     </a>
   );
 }
@@ -436,7 +436,9 @@ function Footer() {
     <footer className="bg-primary text-primary-foreground">
       <div className="mx-auto max-w-7xl px-6 py-16 grid md:grid-cols-3 gap-10">
         <div>
-          <img src={logo} alt="Sweet Joy Cafe" className="h-14 md:h-20 w-auto" />
+          <span className="font-display text-2xl font-semibold text-primary-foreground tracking-tight">
+            Sweet <span className="italic opacity-80">Joy</span>
+          </span>
           <p className="mt-3 text-sm opacity-80">Кофейня и кондитерская в центре Ставрополя. С любовью к каждому кусочку.</p>
         </div>
         <div className="text-sm space-y-2 opacity-90">
