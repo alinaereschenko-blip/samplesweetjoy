@@ -393,9 +393,24 @@ function ChefMenu() {
             </a>
           </div>
 
-          <div className="mt-10 grid grid-cols-2 gap-4">
-            <img src={bowl1} alt="Боул с лососем, авокадо и киноа" className="rounded-2xl aspect-square object-cover" loading="lazy" />
-            <img src={bowl2} alt="Боул с тунцом, овощами и эдамаме" className="rounded-2xl aspect-square object-cover" loading="lazy" />
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            {[
+              { src: menu1, alt: "Зелёный салат с томатами" },
+              { src: menu2, alt: "Поке-боул с лососем и авокадо" },
+              { src: menu3, alt: "Боул с тунцом, яйцом и эдамаме" },
+              { src: menu4, alt: "Куриное филе с овощами" },
+              { src: menu5, alt: "Салат «Цезарь»" },
+            ].map((d) => (
+              <img
+                key={d.alt}
+                src={d.src}
+                alt={d.alt}
+                width={260}
+                height={260}
+                loading="lazy"
+                className="w-[260px] h-[260px] object-cover rounded-[12px] bg-card"
+              />
+            ))}
           </div>
         </div>
       </div>
