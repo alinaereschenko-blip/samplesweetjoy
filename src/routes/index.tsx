@@ -16,6 +16,11 @@ import review4 from "@/assets/reviews/review-4.jpg";
 import review5 from "@/assets/reviews/review-5.jpg";
 import bowl1 from "@/assets/dishes/bowl-1.jpg";
 import bowl2 from "@/assets/dishes/bowl-2.jpg";
+import menu1 from "@/assets/dishes/menu-1.png";
+import menu2 from "@/assets/dishes/menu-2.png";
+import menu3 from "@/assets/dishes/menu-3.png";
+import menu4 from "@/assets/dishes/menu-4.png";
+import menu5 from "@/assets/dishes/menu-5.png";
 import saladCezar from "@/assets/dishes/salad-cezar.jpg";
 import saladStracciatella from "@/assets/dishes/salad-stracciatella.jpg";
 import saladEggplant from "@/assets/dishes/salad-eggplant.jpg";
@@ -388,9 +393,24 @@ function ChefMenu() {
             </a>
           </div>
 
-          <div className="mt-10 grid grid-cols-2 gap-4">
-            <img src={bowl1} alt="Боул с лососем, авокадо и киноа" className="rounded-2xl aspect-square object-cover" loading="lazy" />
-            <img src={bowl2} alt="Боул с тунцом, овощами и эдамаме" className="rounded-2xl aspect-square object-cover" loading="lazy" />
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            {[
+              { src: menu1, alt: "Зелёный салат с томатами" },
+              { src: menu2, alt: "Поке-боул с лососем и авокадо" },
+              { src: menu3, alt: "Боул с тунцом, яйцом и эдамаме" },
+              { src: menu4, alt: "Куриное филе с овощами" },
+              { src: menu5, alt: "Салат «Цезарь»" },
+            ].map((d) => (
+              <img
+                key={d.alt}
+                src={d.src}
+                alt={d.alt}
+                width={260}
+                height={260}
+                loading="lazy"
+                className="w-[260px] h-[260px] object-cover rounded-[12px] bg-card"
+              />
+            ))}
           </div>
         </div>
       </div>
