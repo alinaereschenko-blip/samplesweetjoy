@@ -230,7 +230,7 @@ function CustomCakes() {
             className="rounded-3xl shadow-[var(--shadow-soft)] w-full object-cover aspect-square"
           />
           <div className="absolute -bottom-6 right-6 bg-card rounded-2xl px-6 py-5 shadow-[var(--shadow-card)] border border-border max-w-[220px]">
-            <div className="font-display text-3xl text-accent">от 1500 ₽</div>
+            <div className="font-display text-3xl text-accent">от 2100 ₽/кг</div>
             <div className="text-xs text-muted-foreground mt-1">за килограмм авторского торта</div>
           </div>
         </div>
