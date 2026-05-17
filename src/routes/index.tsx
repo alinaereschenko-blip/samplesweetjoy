@@ -8,7 +8,7 @@ const cakeDisplay = "https://images.pexels.com/photos/1721932/pexels-photo-17219
 const cakeStrawberry = "https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?auto=compress&cs=tinysrgb&w=800";
 const cakePistachio = "https://images.pexels.com/photos/1854652/pexels-photo-1854652.jpeg?auto=compress&cs=tinysrgb&w=800";
 const cakeMedovik = "https://images.pexels.com/photos/6880219/pexels-photo-6880219.jpeg?auto=compress&cs=tinysrgb&w=800";
-const chef = "https://images.pexels.com/photos/3814446/pexels-photo-3814446.jpeg?auto=compress&cs=tinysrgb&w=800";
+import chef from "@/assets/chef.jpg";
 const review1 = "https://images.pexels.com/photos/3992656/pexels-photo-3992656.jpeg?auto=compress&cs=tinysrgb&w=400";
 const review2 = "https://images.pexels.com/photos/3992198/pexels-photo-3992198.jpeg?auto=compress&cs=tinysrgb&w=400";
 const review3 = "https://images.pexels.com/photos/3992207/pexels-photo-3992207.jpeg?auto=compress&cs=tinysrgb&w=400";
