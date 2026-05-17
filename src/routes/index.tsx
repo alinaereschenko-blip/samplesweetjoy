@@ -93,7 +93,7 @@ function Hero() {
             <span className="italic text-accent"> хочется улыбнуться</span>
           </h1>
           <p className="mt-8 text-lg text-muted-foreground max-w-lg">
-            Свежая выпечка каждый день. Торты на заказ от 1500 ₽/кг.
+            Свежая выпечка каждый день. Торты на заказ от 2100 ₽/кг.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a href="#cakes" className="inline-flex items-center rounded-full bg-primary text-primary-foreground px-7 py-3.5 text-sm font-semibold hover:opacity-90 transition shadow-[var(--shadow-soft)]">
