@@ -116,11 +116,11 @@ function Hero() {
               height={1280}
               className="rounded-3xl shadow-[var(--shadow-soft)] w-full object-cover aspect-square"
             />
-            <div className="absolute -bottom-6 -left-6 bg-card rounded-2xl px-5 py-4 shadow-[var(--shadow-card)] border border-border">
+            <div className="absolute bottom-3 left-3 md:-bottom-6 md:-left-6 bg-card rounded-2xl px-4 py-3 md:px-5 md:py-4 shadow-[var(--shadow-card)] border border-border">
               <div className="text-xs text-muted-foreground">наша гордость</div>
-              <div className="font-display text-lg text-primary">Ягодное облако</div>
+              <div className="font-display text-base md:text-lg text-primary">Ягодное облако</div>
             </div>
-            <div className="absolute -top-4 -right-4 bg-accent text-accent-foreground rounded-full px-4 py-2 text-xs font-semibold rotate-6">
+            <div className="absolute top-3 right-3 md:-top-4 md:-right-4 bg-accent text-accent-foreground rounded-full px-3 py-1.5 md:px-4 md:py-2 text-[11px] md:text-xs font-semibold rotate-6">
               свежие каждый день
             </div>
           </div>
@@ -197,9 +197,9 @@ function CustomCakes() {
           <p className="mt-6 text-muted-foreground text-lg">
             Свадьба, день рождения, корпоратив или просто вечер вторника — мы испечём торт по вашему вкусу, цвету и поводу. Минимум за 2 дня.
           </p>
-          <div className="mt-6 inline-flex items-center gap-3 rounded-full bg-accent/20 px-6 py-4">
-            <span className="font-display text-3xl leading-none text-accent translate-y-[2px]">20+</span>
-            <span className="text-sm leading-none text-foreground">видов начинок на выбор</span>
+          <div className="mt-6 inline-flex items-baseline gap-2 rounded-full bg-accent/20 px-6 py-3">
+            <span className="text-2xl font-bold text-accent">20+</span>
+            <span className="text-sm text-foreground">видов начинок на выбор</span>
           </div>
           <ul className="mt-8 space-y-4">
             {[
