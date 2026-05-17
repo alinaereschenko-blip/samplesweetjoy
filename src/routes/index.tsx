@@ -93,12 +93,9 @@ function Hero() {
             Торты, от которых
             <span className="italic text-accent"> хочется улыбнуться</span>
           </h1>
-          <div className="mt-8 space-y-4 text-lg text-muted-foreground max-w-lg">
-            <p>
-              <span className="font-semibold text-primary">Наша миссия:</span> дарить вам счастливые эмоции и радость от каждого мгновения, проведённого в Sweet Joy, и делать всё возможное, чтобы ваше время у нас стало особенным.
-            </p>
-            <p>Мы активно развиваемся и мечтаем радовать вас ещё больше.</p>
-          </div>
+          <p className="mt-8 text-lg text-muted-foreground max-w-lg">
+            Свежая выпечка каждый день. Торты на заказ от 1500 ₽/кг.
+          </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a href="#cakes" className="inline-flex items-center rounded-full bg-primary text-primary-foreground px-7 py-3.5 text-sm font-semibold hover:opacity-90 transition shadow-[var(--shadow-soft)]">
               Посмотреть витрину
