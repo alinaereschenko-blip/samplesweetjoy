@@ -395,8 +395,12 @@ function Visit() {
           </h2>
           <div className="mt-8 space-y-5 text-foreground">
             <div>
-              <div className="text-xs uppercase tracking-wider text-muted-foreground">Адрес</div>
-              <div className="mt-1 text-lg">просп. Октябрьской Революции, 20, Ставрополь</div>
+              <div className="text-xs uppercase tracking-wider text-muted-foreground">Адреса</div>
+              <ul className="mt-2 space-y-1.5 text-lg">
+                <li>ул. Маршала Жукова, 30</li>
+                <li>просп. Октябрьской Революции, 20</li>
+                <li>ул. Маргелова, 9/1</li>
+              </ul>
             </div>
             <div>
               <div className="text-xs uppercase tracking-wider text-muted-foreground">Часы работы</div>
@@ -407,14 +411,26 @@ function Visit() {
               <a href="tel:+79187778219" className="mt-1 text-lg block hover:text-accent transition">+7 (918) 777-82-19</a>
             </div>
           </div>
-          <a
-            href="https://yandex.ru/maps/?text=Ставрополь%2C%20просп.%20Октябрьской%20Революции%2C%2020"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center rounded-full bg-primary text-primary-foreground px-7 py-3.5 text-sm font-semibold hover:opacity-90 transition shadow-[var(--shadow-soft)]"
-          >
-            Построить маршрут →
-          </a>
+          <div className="mt-8">
+            <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Построить маршрут до:</div>
+            <div className="flex flex-wrap gap-3">
+              {[
+                { label: "ул. Маршала Жукова, 30", q: "Ставрополь, ул. Маршала Жукова, 30" },
+                { label: "просп. Октябрьской Революции, 20", q: "Ставрополь, просп. Октябрьской Революции, 20" },
+                { label: "ул. Маргелова, 9/1", q: "Ставрополь, ул. Маргелова, 9/1" },
+              ].map((a) => (
+                <a
+                  key={a.label}
+                  href={`https://yandex.ru/maps/?text=${encodeURIComponent(a.q)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm font-semibold hover:opacity-90 transition shadow-[var(--shadow-soft)]"
+                >
+                  {a.label} →
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -438,8 +454,10 @@ function Footer() {
         </div>
         <div className="text-sm space-y-2 opacity-90">
           <div className="font-semibold mb-3 opacity-100">Контакты</div>
+          <div>ул. Маршала Жукова, 30</div>
           <div>просп. Октябрьской Революции, 20</div>
-          <div>Ставрополь</div>
+          <div>ул. Маргелова, 9/1</div>
+          <div className="opacity-70">Ставрополь</div>
           <div>Ежедневно 10:00 — 22:00</div>
           <a href="tel:+79187778219" className="block hover:text-accent transition">+7 (918) 777-82-19</a>
         </div>
