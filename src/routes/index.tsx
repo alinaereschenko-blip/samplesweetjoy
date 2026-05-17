@@ -52,7 +52,7 @@ function Index() {
 function Logo({ className = "" }: { className?: string }) {
   return (
     <a href="#top" className={`flex items-center ${className}`} aria-label="Sweet Joy Cafe">
-      <img src={logo} alt="Sweet Joy Cafe" className="h-auto w-[240px] md:w-[280px]" />
+      <img src={logo} alt="Sweet Joy Cafe" className="h-auto w-[180px] md:w-[220px]" />
     </a>
   );
 }
@@ -60,7 +60,7 @@ function Logo({ className = "" }: { className?: string }) {
 function Header() {
   return (
     <header id="top" className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b border-border/60">
-      <div className="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
+      <div className="mx-auto max-w-7xl px-6 py-1.5 flex items-center justify-between">
         <Logo />
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
           <a href="#cakes" className="hover:text-primary transition">Торты</a>
@@ -70,7 +70,7 @@ function Header() {
         </nav>
         <a
           href="tel:+79187778219"
-          className="hidden md:inline-flex items-center rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm font-semibold hover:opacity-90 transition shadow-[var(--shadow-soft)]"
+          className="hidden md:inline-flex items-center rounded-full bg-primary text-primary-foreground px-4 py-1.5 text-sm font-semibold hover:opacity-90 transition shadow-[var(--shadow-soft)]"
         >
           +7 (918) 777-82-19
         </a>
