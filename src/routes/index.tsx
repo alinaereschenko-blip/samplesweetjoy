@@ -1,19 +1,23 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import orderCake from "@/assets/order-cake.png";
-
-const heroCake = "https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg?auto=compress&cs=tinysrgb&w=1280";
-const cafeInterior = "https://images.pexels.com/photos/1855214/pexels-photo-1855214.jpeg?auto=compress&cs=tinysrgb&w=1280";
-const cakeDisplay = "https://images.pexels.com/photos/1721932/pexels-photo-1721932.jpeg?auto=compress&cs=tinysrgb&w=1280";
-const cakeStrawberry = "https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?auto=compress&cs=tinysrgb&w=800";
-const cakePistachio = "https://images.pexels.com/photos/1854652/pexels-photo-1854652.jpeg?auto=compress&cs=tinysrgb&w=800";
-const cakeMedovik = "https://images.pexels.com/photos/6880219/pexels-photo-6880219.jpeg?auto=compress&cs=tinysrgb&w=800";
-import chef from "@/assets/chef.jpg";
-const review1 = "https://images.pexels.com/photos/3992656/pexels-photo-3992656.jpeg?auto=compress&cs=tinysrgb&w=400";
-const review2 = "https://images.pexels.com/photos/3992198/pexels-photo-3992198.jpeg?auto=compress&cs=tinysrgb&w=400";
-const review3 = "https://images.pexels.com/photos/3992207/pexels-photo-3992207.jpeg?auto=compress&cs=tinysrgb&w=400";
-const review4 = "https://images.pexels.com/photos/3992204/pexels-photo-3992204.jpeg?auto=compress&cs=tinysrgb&w=400";
-const review5 = "https://images.pexels.com/photos/3992197/pexels-photo-3992197.jpeg?auto=compress&cs=tinysrgb&w=400";
+import heroCake from "@/assets/hero-cake.png";
+import logo from "@/assets/logo-transparent.png";
+import cafeInterior from "@/assets/cafe-interior.webp";
+import cakeDisplay from "@/assets/cake-display.jpg";
+import cakeStrawberry from "@/assets/cake-strawberry.jpg";
+import cakePistachio from "@/assets/cake-pistachio.jpg";
+import cakeMedovik from "@/assets/cake-medovik.jpg";
+import coffeeRaf from "@/assets/coffee-raf.jpg";
+import interior from "@/assets/interior.jpg";
+import chef from "@/assets/chef.png";
+import review1 from "@/assets/reviews/review-1.jpg";
+import review2 from "@/assets/reviews/review-2.jpg";
+import review3 from "@/assets/reviews/review-3.jpg";
+import review4 from "@/assets/reviews/review-4.jpg";
+import review5 from "@/assets/reviews/review-5.jpg";
+import saladCezar from "@/assets/dishes/salad-cezar.jpg";
+import saladStracciatella from "@/assets/dishes/salad-stracciatella.jpg";
+import saladEggplant from "@/assets/dishes/salad-eggplant.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -51,9 +55,7 @@ function Index() {
 function Logo({ className = "" }: { className?: string }) {
   return (
     <a href="#top" className={`flex items-center ${className}`} aria-label="Sweet Joy Cafe">
-      <span className="font-display text-2xl md:text-3xl font-semibold text-primary tracking-tight">
-        Sweet <span className="text-accent italic">Joy</span>
-      </span>
+      <img src={logo} alt="Sweet Joy Cafe" className="h-14 md:h-20 w-auto" />
     </a>
   );
 }
@@ -93,9 +95,12 @@ function Hero() {
             Торты, от которых
             <span className="italic text-accent"> хочется улыбнуться</span>
           </h1>
-          <p className="mt-8 text-lg text-muted-foreground max-w-lg">
-            Свежая выпечка каждый день. Торты на заказ от 1500 ₽/кг.
-          </p>
+          <div className="mt-8 space-y-4 text-lg text-muted-foreground max-w-lg">
+            <p>
+              <span className="font-semibold text-primary">Наша миссия:</span> дарить вам счастливые эмоции и радость от каждого мгновения, проведённого в Sweet Joy, и делать всё возможное, чтобы ваше время у нас стало особенным.
+            </p>
+            <p>Мы активно развиваемся и мечтаем радовать вас ещё больше.</p>
+          </div>
           <div className="mt-8 flex flex-wrap gap-4">
             <a href="#cakes" className="inline-flex items-center rounded-full bg-primary text-primary-foreground px-7 py-3.5 text-sm font-semibold hover:opacity-90 transition shadow-[var(--shadow-soft)]">
               Посмотреть витрину
@@ -222,7 +227,7 @@ function CustomCakes() {
 
         <div className="relative">
           <img
-            src={orderCake}
+            src={cakePistachio}
             alt="Авторский торт на заказ"
             loading="lazy"
             width={800}
@@ -339,6 +344,11 @@ function ChefMenu() {
               </div>
             </div>
           </div>
+          <div className="mt-6 grid grid-cols-3 gap-3">
+            <img src={saladCezar} alt="Салат «Цезарь» с лососем" className="rounded-2xl aspect-square object-cover" loading="lazy" />
+            <img src={saladStracciatella} alt="Салат со страчателлой" className="rounded-2xl aspect-square object-cover" loading="lazy" />
+            <img src={saladEggplant} alt="Салат с баклажаном" className="rounded-2xl aspect-square object-cover" loading="lazy" />
+          </div>
         </div>
 
         <div className="md:col-span-3 order-1 md:order-2">
@@ -426,9 +436,7 @@ function Footer() {
     <footer className="bg-primary text-primary-foreground">
       <div className="mx-auto max-w-7xl px-6 py-16 grid md:grid-cols-3 gap-10">
         <div>
-          <span className="font-display text-2xl font-semibold text-primary-foreground tracking-tight">
-            Sweet <span className="italic opacity-80">Joy</span>
-          </span>
+          <img src={logo} alt="Sweet Joy Cafe" className="h-14 md:h-20 w-auto" />
           <p className="mt-3 text-sm opacity-80">Кофейня и кондитерская в центре Ставрополя. С любовью к каждому кусочку.</p>
         </div>
         <div className="text-sm space-y-2 opacity-90">
