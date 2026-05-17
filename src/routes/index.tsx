@@ -117,7 +117,7 @@ function Hero() {
               className="rounded-3xl shadow-[var(--shadow-soft)] w-full object-cover aspect-square"
             />
             <div className="absolute -bottom-6 -left-6 bg-card rounded-2xl px-5 py-4 shadow-[var(--shadow-card)] border border-border">
-              <div className="text-xs text-muted-foreground">торт дня</div>
+              <div className="text-xs text-muted-foreground">наша гордость</div>
               <div className="font-display text-lg text-primary">Ягодное облако</div>
             </div>
             <div className="absolute -top-4 -right-4 bg-accent text-accent-foreground rounded-full px-4 py-2 text-xs font-semibold rotate-6">
