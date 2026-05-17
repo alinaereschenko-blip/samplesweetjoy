@@ -203,9 +203,11 @@ function CustomCakes() {
           </div>
           <ul className="mt-8 space-y-4">
             {[
-              "Свежие фрукты, ягоды, шоколад",
-              "Размер от 1 до 10 кг",
-              "Доставка по Ставрополю",
+              "Минимальный вес от 1,5 кг",
+              "Стоимость от 2100 ₽/кг",
+              "Бенто-торт от 1500 ₽ / 600 г",
+              "Готовность от 24 часов",
+              "Стандарт, Премиум и Свадебные торты",
             ].map((it) => (
               <li key={it} className="flex items-start gap-3">
                 <span className="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-accent text-accent-foreground text-xs font-bold">✓</span>
@@ -228,7 +230,7 @@ function CustomCakes() {
             className="rounded-3xl shadow-[var(--shadow-soft)] w-full object-cover aspect-square"
           />
           <div className="absolute -bottom-6 right-6 bg-card rounded-2xl px-6 py-5 shadow-[var(--shadow-card)] border border-border max-w-[220px]">
-            <div className="font-display text-3xl text-accent">от 1500 ₽</div>
+            <div className="font-display text-3xl text-accent">от 2100 ₽/кг</div>
             <div className="text-xs text-muted-foreground mt-1">за килограмм авторского торта</div>
           </div>
         </div>
