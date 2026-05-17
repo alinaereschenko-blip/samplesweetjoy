@@ -54,7 +54,7 @@ function Index() {
 function Logo({ className = "" }: { className?: string }) {
   return (
     <a href="#top" className={`flex items-center ${className}`} aria-label="Sweet Joy Cafe">
-      <img src={logo} alt="Sweet Joy Cafe" className="h-14 md:h-20 w-auto" />
+      <img src={logo} alt="Sweet Joy Cafe" className="h-auto w-[120px] md:w-[140px]" />
     </a>
   );
 }
