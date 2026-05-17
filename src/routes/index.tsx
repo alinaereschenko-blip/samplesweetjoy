@@ -411,9 +411,12 @@ function Visit() {
               <a href="tel:+79187778219" className="mt-1 text-lg block hover:text-accent transition">+7 (918) 777-82-19</a>
             </div>
           </div>
-          <div className="mt-8">
-            <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Построить маршрут до:</div>
-            <div className="flex flex-wrap gap-3">
+          <details className="mt-8 group relative inline-block">
+            <summary className="list-none cursor-pointer inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-3.5 text-sm font-semibold hover:opacity-90 transition shadow-[var(--shadow-soft)] [&::-webkit-details-marker]:hidden">
+              Построить маршрут
+              <span className="transition-transform group-open:rotate-180">▾</span>
+            </summary>
+            <div className="absolute left-0 mt-2 z-20 min-w-[280px] rounded-2xl bg-card border border-border shadow-[var(--shadow-card)] overflow-hidden">
               {[
                 { label: "ул. Маршала Жукова, 30", q: "Ставрополь, ул. Маршала Жукова, 30" },
                 { label: "просп. Октябрьской Революции, 20", q: "Ставрополь, просп. Октябрьской Революции, 20" },
@@ -424,13 +427,13 @@ function Visit() {
                   href={`https://yandex.ru/maps/?text=${encodeURIComponent(a.q)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm font-semibold hover:opacity-90 transition shadow-[var(--shadow-soft)]"
+                  className="block px-5 py-3 text-sm text-foreground hover:bg-secondary transition border-b border-border last:border-b-0"
                 >
                   {a.label} →
                 </a>
               ))}
             </div>
-          </div>
+          </details>
         </div>
       </div>
     </section>
