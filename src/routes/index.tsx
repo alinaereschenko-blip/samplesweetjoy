@@ -197,8 +197,8 @@ function CustomCakes() {
           <p className="mt-6 text-muted-foreground text-lg">
             Свадьба, день рождения, корпоратив или просто вечер вторника — мы испечём торт по вашему вкусу, цвету и поводу. Минимум за 2 дня.
           </p>
-          <div className="mt-6 inline-flex items-baseline gap-3 rounded-2xl bg-accent/20 px-5 py-3">
-            <span className="font-display text-3xl leading-none text-accent">20+</span>
+          <div className="mt-6 inline-flex items-center gap-3 rounded-full bg-accent/20 px-6 py-4">
+            <span className="font-display text-3xl leading-none text-accent translate-y-[2px]">20+</span>
             <span className="text-sm leading-none text-foreground">видов начинок на выбор</span>
           </div>
           <ul className="mt-8 space-y-4">
