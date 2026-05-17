@@ -228,7 +228,7 @@ function CustomCakes() {
 
         <div className="relative">
           <img
-            src={cakePistachio}
+            src={orderCake}
             alt="Авторский торт на заказ"
             loading="lazy"
             width={800}
