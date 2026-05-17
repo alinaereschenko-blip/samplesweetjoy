@@ -8,15 +8,13 @@ import cakePistachio from "@/assets/cake-pistachio.jpg";
 import cakeMedovik from "@/assets/cake-medovik.jpg";
 import coffeeRaf from "@/assets/coffee-raf.jpg";
 import interior from "@/assets/interior.jpg";
-import chef from "@/assets/chef.png";
+import chef from "@/assets/chef.jpg";
+import customCake from "@/assets/custom-cake.png";
 import review1 from "@/assets/reviews/review-1.jpg";
 import review2 from "@/assets/reviews/review-2.jpg";
 import review3 from "@/assets/reviews/review-3.jpg";
 import review4 from "@/assets/reviews/review-4.jpg";
 import review5 from "@/assets/reviews/review-5.jpg";
-import saladCezar from "@/assets/dishes/salad-cezar.jpg";
-import saladStracciatella from "@/assets/dishes/salad-stracciatella.jpg";
-import saladEggplant from "@/assets/dishes/salad-eggplant.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -226,7 +224,7 @@ function CustomCakes() {
 
         <div className="relative">
           <img
-            src={cakePistachio}
+            src={customCake}
             alt="Авторский торт на заказ"
             loading="lazy"
             width={800}
@@ -342,11 +340,6 @@ function ChefMenu() {
                 <div className="font-display text-2xl">Семён Найдёнов</div>
               </div>
             </div>
-          </div>
-          <div className="mt-6 grid grid-cols-3 gap-3">
-            <img src={saladCezar} alt="Салат «Цезарь» с лососем" className="rounded-2xl aspect-square object-cover" loading="lazy" />
-            <img src={saladStracciatella} alt="Салат со страчателлой" className="rounded-2xl aspect-square object-cover" loading="lazy" />
-            <img src={saladEggplant} alt="Салат с баклажаном" className="rounded-2xl aspect-square object-cover" loading="lazy" />
           </div>
         </div>
 
