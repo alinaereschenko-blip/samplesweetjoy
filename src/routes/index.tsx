@@ -52,7 +52,7 @@ function Index() {
 function Logo({ className = "" }: { className?: string }) {
   return (
     <a href="#top" className={`flex items-center ${className}`} aria-label="Sweet Joy Cafe">
-      <img src={logo} alt="Sweet Joy Cafe" className="h-auto w-[120px] md:w-[140px]" />
+      <img src={logo} alt="Sweet Joy Cafe" className="h-auto w-[240px] md:w-[280px]" />
     </a>
   );
 }
@@ -428,8 +428,10 @@ function Footer() {
     <footer className="bg-primary text-primary-foreground">
       <div className="mx-auto max-w-7xl px-6 py-16 grid md:grid-cols-3 gap-10">
         <div>
-          <div className="font-display text-3xl">Sweet <span className="italic text-accent">Joy</span></div>
-          <p className="mt-3 text-sm opacity-80">Кофейня и кондитерская в центре Ставрополя. С любовью к каждому кусочку.</p>
+          <div className="inline-block rounded-2xl bg-[var(--cream)] p-4">
+            <img src={logo} alt="Sweet Joy Cafe" className="h-auto w-[200px]" />
+          </div>
+          <p className="mt-4 text-sm opacity-80">Кофейня и кондитерская в центре Ставрополя. С любовью к каждому кусочку.</p>
         </div>
         <div className="text-sm space-y-2 opacity-90">
           <div className="font-semibold mb-3 opacity-100">Навигация</div>
