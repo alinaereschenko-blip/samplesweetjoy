@@ -428,7 +428,7 @@ function Footer() {
     <footer className="bg-primary text-primary-foreground">
       <div className="mx-auto max-w-7xl px-6 py-16 grid md:grid-cols-3 gap-10">
         <div>
-          <div className="inline-block rounded-2xl bg-[var(--cream)] p-4">
+          <div className="inline-block rounded-2xl border border-[var(--cream)]/60 p-3">
             <img src={logo} alt="Sweet Joy Cafe" className="h-auto w-[200px]" />
           </div>
           <p className="mt-4 text-sm opacity-80">Кофейня и кондитерская в центре Ставрополя. С любовью к каждому кусочку.</p>
