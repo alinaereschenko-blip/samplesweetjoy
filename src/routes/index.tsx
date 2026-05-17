@@ -203,9 +203,11 @@ function CustomCakes() {
           </div>
           <ul className="mt-8 space-y-4">
             {[
-              "Свежие фрукты, ягоды, шоколад",
-              "Размер от 1 до 10 кг",
-              "Доставка по Ставрополю",
+              "Минимальный вес от 1,5 кг",
+              "Стоимость от 2100 ₽/кг",
+              "Бенто-торт от 1500 ₽ / 600 г",
+              "Готовность от 24 часов",
+              "Стандарт, Премиум и Свадебные торты",
             ].map((it) => (
               <li key={it} className="flex items-start gap-3">
                 <span className="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-accent text-accent-foreground text-xs font-bold">✓</span>
