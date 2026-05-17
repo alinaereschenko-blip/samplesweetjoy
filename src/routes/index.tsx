@@ -326,11 +326,11 @@ function ChefMenu() {
         <div className="md:col-span-2 relative order-2 md:order-1">
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-accent/30 to-[var(--pistachio)]/30 rounded-[2rem] -rotate-3" />
-            <div className="relative bg-gradient-to-br from-[var(--cream)] to-secondary rounded-[2rem] overflow-hidden border border-border shadow-[var(--shadow-card)] aspect-[3/4]">
+            <div className="relative rounded-[2rem] overflow-hidden border border-border shadow-[var(--shadow-card)] aspect-[3/4]">
               <img
                 src={chef}
                 alt="Шеф-повар Семён Найдёнов"
-                className="absolute inset-0 w-full h-full object-contain"
+                className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
               />
               <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/60 to-transparent text-white">
