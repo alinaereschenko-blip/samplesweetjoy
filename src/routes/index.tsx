@@ -446,7 +446,7 @@ function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16 grid md:grid-cols-3 gap-10">
         <div>
           <img src={logo} alt="Sweet Joy Cafe" className="h-auto w-[200px]" style={{ filter: "brightness(0) invert(1)" }} />
-          <p className="mt-4 text-sm opacity-80">Кофейня и кондитерская в центре Ставрополя. С любовью к каждому кусочку.</p>
+          <p className="mt-4 text-sm opacity-80">Кофейни и кондитерские в центре Ставрополя. С любовью к каждому кусочку.</p>
         </div>
         <div className="text-sm space-y-2 opacity-90">
           <div className="font-semibold mb-3 opacity-100">Навигация</div>
