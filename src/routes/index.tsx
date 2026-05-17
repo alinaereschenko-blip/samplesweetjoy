@@ -116,11 +116,11 @@ function Hero() {
               height={1280}
               className="rounded-3xl shadow-[var(--shadow-soft)] w-full object-cover aspect-square"
             />
-            <div className="absolute -bottom-6 -left-6 bg-card rounded-2xl px-5 py-4 shadow-[var(--shadow-card)] border border-border">
+            <div className="absolute bottom-3 left-3 md:-bottom-6 md:-left-6 bg-card rounded-2xl px-4 py-3 md:px-5 md:py-4 shadow-[var(--shadow-card)] border border-border">
               <div className="text-xs text-muted-foreground">наша гордость</div>
-              <div className="font-display text-lg text-primary">Ягодное облако</div>
+              <div className="font-display text-base md:text-lg text-primary">Ягодное облако</div>
             </div>
-            <div className="absolute -top-4 -right-4 bg-accent text-accent-foreground rounded-full px-4 py-2 text-xs font-semibold rotate-6">
+            <div className="absolute top-3 right-3 md:-top-4 md:-right-4 bg-accent text-accent-foreground rounded-full px-3 py-1.5 md:px-4 md:py-2 text-[11px] md:text-xs font-semibold rotate-6">
               свежие каждый день
             </div>
           </div>
@@ -197,9 +197,9 @@ function CustomCakes() {
           <p className="mt-6 text-muted-foreground text-lg">
             Свадьба, день рождения, корпоратив или просто вечер вторника — мы испечём торт по вашему вкусу, цвету и поводу. Минимум за 2 дня.
           </p>
-          <div className="mt-6 inline-flex items-center gap-3 rounded-full bg-accent/20 px-6 py-4">
-            <span className="font-display text-3xl leading-none text-accent translate-y-[2px]">20+</span>
-            <span className="text-sm leading-none text-foreground">видов начинок на выбор</span>
+          <div className="mt-6 inline-flex items-baseline gap-2 rounded-full bg-accent/20 px-6 py-3">
+            <span className="text-2xl font-bold text-accent">20+</span>
+            <span className="text-sm text-foreground">видов начинок на выбор</span>
           </div>
           <ul className="mt-8 space-y-4">
             {[
@@ -395,8 +395,12 @@ function Visit() {
           </h2>
           <div className="mt-8 space-y-5 text-foreground">
             <div>
-              <div className="text-xs uppercase tracking-wider text-muted-foreground">Адрес</div>
-              <div className="mt-1 text-lg">просп. Октябрьской Революции, 20, Ставрополь</div>
+              <div className="text-xs uppercase tracking-wider text-muted-foreground">Адреса</div>
+              <ul className="mt-2 space-y-1.5 text-lg">
+                <li>ул. Маршала Жукова, 30</li>
+                <li>просп. Октябрьской Революции, 20</li>
+                <li>ул. Маргелова, 9/1</li>
+              </ul>
             </div>
             <div>
               <div className="text-xs uppercase tracking-wider text-muted-foreground">Часы работы</div>
@@ -407,14 +411,26 @@ function Visit() {
               <a href="tel:+79187778219" className="mt-1 text-lg block hover:text-accent transition">+7 (918) 777-82-19</a>
             </div>
           </div>
-          <a
-            href="https://yandex.ru/maps/?text=Ставрополь%2C%20просп.%20Октябрьской%20Революции%2C%2020"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center rounded-full bg-primary text-primary-foreground px-7 py-3.5 text-sm font-semibold hover:opacity-90 transition shadow-[var(--shadow-soft)]"
-          >
-            Построить маршрут →
-          </a>
+          <div className="mt-8">
+            <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Построить маршрут до:</div>
+            <div className="flex flex-wrap gap-3">
+              {[
+                { label: "ул. Маршала Жукова, 30", q: "Ставрополь, ул. Маршала Жукова, 30" },
+                { label: "просп. Октябрьской Революции, 20", q: "Ставрополь, просп. Октябрьской Революции, 20" },
+                { label: "ул. Маргелова, 9/1", q: "Ставрополь, ул. Маргелова, 9/1" },
+              ].map((a) => (
+                <a
+                  key={a.label}
+                  href={`https://yandex.ru/maps/?text=${encodeURIComponent(a.q)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm font-semibold hover:opacity-90 transition shadow-[var(--shadow-soft)]"
+                >
+                  {a.label} →
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -438,8 +454,10 @@ function Footer() {
         </div>
         <div className="text-sm space-y-2 opacity-90">
           <div className="font-semibold mb-3 opacity-100">Контакты</div>
+          <div>ул. Маршала Жукова, 30</div>
           <div>просп. Октябрьской Революции, 20</div>
-          <div>Ставрополь</div>
+          <div>ул. Маргелова, 9/1</div>
+          <div className="opacity-70">Ставрополь</div>
           <div>Ежедневно 10:00 — 22:00</div>
           <a href="tel:+79187778219" className="block hover:text-accent transition">+7 (918) 777-82-19</a>
         </div>
