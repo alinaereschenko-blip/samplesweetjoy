@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import heroCake from "@/assets/hero-cake.png";
 import logo from "@/assets/logo-transparent.png";
 import cakeDisplay from "@/assets/cake-display.jpg";
-import cakeStrawberry from "@/assets/cake-strawberry.jpg";
-import cakePistachio from "@/assets/cake-pistachio.jpg";
-import cakeMedovik from "@/assets/cake-medovik.jpg";
+import cakeStrawberry from "@/assets/cake-slice-pink.png";
+import cakePistachio from "@/assets/cake-slice-berry.png";
+import cakeMedovik from "@/assets/cake-slice-chocolate.png";
 import coffeeRaf from "@/assets/coffee-raf.jpg";
 import interior from "@/assets/interior.jpg";
 import chef from "@/assets/chef.jpg";
@@ -146,7 +146,7 @@ function CakesSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-[1.25fr_1fr_1.25fr] gap-6 items-center">
           {cakes.map((c) => (
             <article key={c.name} className="group bg-card rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] hover:-translate-y-1 transition-transform duration-300">
               <div className="relative overflow-hidden aspect-square">
