@@ -345,11 +345,6 @@ function ChefMenu() {
               </div>
             </div>
           </div>
-          <div className="mt-6 grid grid-cols-3 gap-3">
-            <img src={saladCezar} alt="Салат «Цезарь» с лососем" className="rounded-2xl aspect-square object-cover" loading="lazy" />
-            <img src={saladStracciatella} alt="Салат со страчателлой" className="rounded-2xl aspect-square object-cover" loading="lazy" />
-            <img src={saladEggplant} alt="Салат с баклажаном" className="rounded-2xl aspect-square object-cover" loading="lazy" />
-          </div>
         </div>
 
         <div className="md:col-span-3 order-1 md:order-2">
