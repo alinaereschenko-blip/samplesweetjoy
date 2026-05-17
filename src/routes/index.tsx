@@ -14,9 +14,6 @@ const review2 = "https://images.pexels.com/photos/3992198/pexels-photo-3992198.j
 const review3 = "https://images.pexels.com/photos/3992207/pexels-photo-3992207.jpeg?auto=compress&cs=tinysrgb&w=400";
 const review4 = "https://images.pexels.com/photos/3992204/pexels-photo-3992204.jpeg?auto=compress&cs=tinysrgb&w=400";
 const review5 = "https://images.pexels.com/photos/3992197/pexels-photo-3992197.jpeg?auto=compress&cs=tinysrgb&w=400";
-const saladCezar = "https://images.pexels.com/photos/1211887/pexels-photo-1211887.jpeg?auto=compress&cs=tinysrgb&w=400";
-const saladStracciatella = "https://images.pexels.com/photos/3026808/pexels-photo-3026808.jpeg?auto=compress&cs=tinysrgb&w=400";
-const saladEggplant = "https://images.pexels.com/photos/5737247/pexels-photo-5737247.jpeg?auto=compress&cs=tinysrgb&w=400";
 
 export const Route = createFileRoute("/")({
   component: Index,
